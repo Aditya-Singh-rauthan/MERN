@@ -1,0 +1,7 @@
+{
+  "mongoURI1": "mongodb+srv://admin:aditya12@cluster0.um7kg.mongodb.net/MERN_1?retryWrites=true&w=majority",
+  "mongoURI": "mongodb://127.0.0.1:27017",
+  "jwtSecret": "mysecrettoken",
+  "githubClientId": "e289a14005422423248f",
+  "githubSecret": "0bfcff8476d3470580a156ad98579a8ad141dd77"
+}

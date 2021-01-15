@@ -1,0 +1,41 @@
+{
+  "name": "mern_1",
+  "version": "1.0.0",
+  "description": "social network for developers",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "author": "aditya",
+  "license": "ISC",
+  "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^23.1.0",
+    "@ckeditor/ckeditor5-react": "^3.0.0",
+    "@uiw/react-md-editor": "^1.14.7",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "config": "^3.3.2",
+    "cors": "^2.8.5",
+    "draft-js": "^0.11.7",
+    "express": "^4.17.1",
+    "express-validator": "^6.6.1",
+    "gravatar": "^1.8.1",
+    "html-react-parser": "^0.14.2",
+    "jsonwebtoken": "^8.5.1",
+    "mdeditor": "^0.1.1",
+    "mongoose": "^5.10.15",
+    "prop-types": "^15.7.2",
+    "react-draft-wysiwyg": "^1.14.5",
+    "request": "^2.88.2",
+    "uuid": "^8.3.1"
+  },
+  "devDependencies": {
+    "@ckeditor/ckeditor5-alignment": "^23.1.0",
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.6"
+  }
+}
