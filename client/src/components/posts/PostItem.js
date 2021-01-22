@@ -3,13 +3,10 @@ import { Link } from "react-router-dom";
 import parse from "html-react-parser";
 import { connect } from "react-redux";
 import { deletePost } from "../../actions/posts";
-import { io } from 'socket.io-client'
-
+import {io} from 'socket.io-client'
 const socket = io.connect('My-Heroku-server-address');
+
 const PostItem = (props) => {
-  socket.on('reload', () => {
-    props.getPosts()
-  })
   return (
     <Fragment>
       <div className="postTile tile">
@@ -68,7 +65,7 @@ const PostItem = (props) => {
           {props.post.user === props.user.user._id ? (
             <button
               className="btn-delete"
-              onClick={() => props.deletePost(props.post._id)}
+              onClick={() => {props.deletePost(props.post._id);socket.emit('postDeleted')}}
             >
               Delete
             </button>

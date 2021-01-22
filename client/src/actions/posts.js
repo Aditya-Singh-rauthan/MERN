@@ -1,8 +1,6 @@
 import axios from "axios";
 import { setAlert } from "./alert";
 import { io } from 'socket.io-client'
-
-const socket = io.connect('My-Heroku-server-address');
 import {
   DELETE_POST,
   GET_POSTS,
@@ -11,6 +9,8 @@ import {
   UPDATE_LIKES,
   ADD_COMMENT,
 } from "./types";
+
+const socket = io.connect('My-Heroku-server-address');
 
 export const getPosts = () => async (dispatch) => {
   try {
