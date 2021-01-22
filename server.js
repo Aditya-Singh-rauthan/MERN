@@ -27,6 +27,21 @@ if (process.env.NODE_ENV === "production") {
 
 const PORT = process.env.PORT || 8000;
 
-app.listen(PORT, () => {
+
+server=app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
 });
+
+
+var io =require('socket.io')(server,{
+  cors: {
+    origin: "*",
+  },
+})
+
+
+io.on('connection',(socket)=>{
+  socket.on('newPost',()=>{
+    io.emit('reload')
+  })
+})

@@ -4,11 +4,16 @@ import { getPosts } from "../../actions/posts";
 import PostItem from "./PostItem";
 import Spinner from "../layout/spinner";
 import { Link, Redirect } from "react-router-dom";
+import { io } from 'socket.io-client'
+
+const socket = io.connect("http://localhost:8000");
 const Posts = (props) => {
   useEffect(() => {
     props.getPosts();
   }, []);
-
+  socket.on('reload', () => {
+    props.getPosts()
+  })
   return (
     <Fragment>
       <div className="tile sidebar">

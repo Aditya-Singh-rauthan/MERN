@@ -5,6 +5,14 @@ import { createPost } from "../../actions/posts";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import Editor from "ckeditor5-custom-build/build/ckeditor";
 //import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { io } from 'socket.io-client'
+
+const socket = io.connect("http://localhost:8000");
+
+// socket.on('connect', () => {
+//   console.log('connected')
+// })
+
 const CreatePost = (props) => {
   const [formdata, setFormdata] = useState({
     title: "",
@@ -69,6 +77,7 @@ const CreatePost = (props) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     props.createPost(formdata, props.history);
+    socket.emit('newPost')
   };
 
   return (
