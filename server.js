@@ -44,4 +44,7 @@ io.on('connection',(socket)=>{
   socket.on('newPost',()=>{
     io.emit('reload')
   })
+  socket.on('postDeleted',()=>{
+    io.emit('reload')
+  })
 })

@@ -3,7 +3,13 @@ import { Link } from "react-router-dom";
 import parse from "html-react-parser";
 import { connect } from "react-redux";
 import { deletePost } from "../../actions/posts";
+import { io } from 'socket.io-client'
+
+const socket = io.connect('My-Heroku-server-address');
 const PostItem = (props) => {
+  socket.on('reload', () => {
+    props.getPosts()
+  })
   return (
     <Fragment>
       <div className="postTile tile">

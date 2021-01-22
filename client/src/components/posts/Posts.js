@@ -6,7 +6,8 @@ import Spinner from "../layout/spinner";
 import { Link, Redirect } from "react-router-dom";
 import { io } from 'socket.io-client'
 
-const socket = io.connect("http://localhost:8000");
+const socket = io.connect('My-Heroku-server-address');
+
 const Posts = (props) => {
   useEffect(() => {
     props.getPosts();

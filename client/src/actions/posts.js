@@ -1,5 +1,8 @@
 import axios from "axios";
 import { setAlert } from "./alert";
+import { io } from 'socket.io-client'
+
+const socket = io.connect('My-Heroku-server-address');
 import {
   DELETE_POST,
   GET_POSTS,
@@ -65,6 +68,7 @@ export const createPost = (formdata, history) => async (dispatch) => {
 };
 
 export const deletePost = (postid) => async (dispatch) => {
+  socket.emit('postDeleted')
   if (window.confirm("Are You Sure??")) {
     try {
       const res = await axios.delete(`/api/posts/${postid}`);

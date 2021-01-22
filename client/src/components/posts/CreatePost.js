@@ -7,7 +7,7 @@ import Editor from "ckeditor5-custom-build/build/ckeditor";
 //import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { io } from 'socket.io-client'
 
-const socket = io.connect("http://localhost:8000");
+const socket = io.connect('My-Heroku-server-address');
 
 // socket.on('connect', () => {
 //   console.log('connected')
